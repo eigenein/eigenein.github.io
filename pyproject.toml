@@ -7,3 +7,8 @@ dependencies = [
     "mkdocs-material[imaging]>=9.7.7,<10.0.0",
     "mkdocs-rss-plugin>=1.19.0,<2.0.0",
 ]
+
+[tool.uv]
+cache-keys = [
+    { file = "pyproject.toml" },
+]
