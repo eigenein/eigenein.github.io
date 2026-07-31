@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
+site_name: "@eigenein"
+site_url: "https://eigenein.dev"
+edit_uri: "edit/main/docs/"
+
+theme:
+  name: "material"
+  language: "en"
+
+watch:
+  - "docs"
