@@ -5,10 +5,8 @@ on:
       - "main"
 jobs:
   build:
+    name: "Build"
     runs-on: "ubuntu-latest"
-    permissions:
-      pages: "write"
-      id-token: "write"
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v7"
@@ -22,11 +20,15 @@ jobs:
       - name: "📤 Upload"
         uses: "actions/upload-pages-artifact@v3"
   publish:
+    name: "Publish"
     needs: "build"
     runs-on: "ubuntu-latest"
     environment:
       name: "github-pages"
       url: "${{ steps.deployment.outputs.page_url }}"
+    permissions:
+      pages: "write"
+      id-token: "write"
     steps:
       - name: "Publish"
         uses: "actions/deploy-pages@v4"
