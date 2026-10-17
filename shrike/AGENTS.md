@@ -1,34 +1,42 @@
 # Shrike
 
-A static web page served from `shrike/index.html`.
+The product page for the Shrike Mac app, served by GitHub Pages at <https://eigenein.dev/shrike>. It is plain static files with no build step: `shrike/index.html` and `shrike/style.css`.
+
+## Fixed URLs
+
+The app and App Store Connect link to this page, so keep these working:
+
+- `https://eigenein.dev/shrike` is the app's **Shrike Help** link and the App Store Connect Support URL.
+- `https://eigenein.dev/shrike#privacy` is the app's **Privacy Policy** link and the App Store Connect Privacy Policy URL, so the policy section must keep `id="privacy"`.
+- `shrike@eigenein.dev` is the support address.
+
+The privacy policy covers the Shrike app only, not this website. Keep it in line with what the app actually does, and update its "Last updated" date when the content changes.
+
+## Before launch
+
+- Replace the favicon (the inline SVG `<link rel="icon">` in the head) and the wordmark icon in the top bar (`.mark`) with the app icon. Both are placeholders for now.
+- Replace the "Coming soon to the Mac App Store" slot (`.store`) with Apple's official "Download on the Mac App Store" badge, unmodified, linking to the app's App Store page.
+
+## Images
+
+- The hero (`.stage`) is an HTML/CSS illustration of a redacted image, not the app's UI. Don't dress it up as an app window.
+- `screenshot-light.webp` and `screenshot-dark.webp` are real captures of the app window in each appearance, and the page picks one through `<picture>` and `prefers-color-scheme`. Take both of the same state at 2× resolution, with the macOS window shadow on a transparent background (⌘⇧4, then Space), and convert them with `cwebp -lossless -z 9 -metadata none`. Retake them when the app's UI changes, and keep the `alt` text and the copy around them in line with what they show.
 
 ## Dependencies
 
-All third-party resources are loaded from [cdnjs](https://cdnjs.cloudflare.com) with Subresource Integrity (`integrity`, `crossorigin="anonymous"`, `referrerpolicy="no-referrer"`):
-
-| Library                                   | Version | File                  |
-|-------------------------------------------|---------|-----------------------|
-| [Bulma](https://bulma.io)                 | 1.0.4   | `css/bulma.min.css`   |
-| [Font Awesome](https://fontawesome.com)   | 7.3.1   | `css/all.min.css`     |
-
-When upgrading, take the latest version from cdnjs (`https://api.cdnjs.com/libraries/<name>?fields=version`) and update the SRI hash (`https://api.cdnjs.com/libraries/<name>/<version>?fields=sri`) together with the URL.
-
-## Theming
-
-Bulma follows the device light/dark preference automatically through `prefers-color-scheme`. Keep it that way:
-
-- `<meta name="color-scheme" content="light dark">` is set in the head so native UI (scrollbars, form controls) matches.
-- Do **not** add `data-theme` or `.theme-light`/`.theme-dark` to `<html>` or `<body>`: these would pin the theme and override the device preference.
+There are none: no CSS frameworks, icon fonts, web fonts, or scripts. Fonts come from the system font stack, and icons are inline SVG. Keep it that way unless a dependency is clearly worth it, because every third-party host also sees visitors' IP addresses.
 
 ## Styling
 
-- Use Bulma classes, helpers, and CSS variables for layout and appearance, and Font Awesome for icons.
-- Do **not** add custom CSS (`<style>`, `style=""`, or extra stylesheets) unless explicitly requested, or a proposal to do so has been approved.
+- All styles live in `style.css`. Avoid `<style>` blocks and `style=""` attributes.
+- Colours, fonts, and spacing are CSS custom properties on `:root`. Use them instead of hard-coded values.
+- Light and dark themes follow the device through `prefers-color-scheme`, which overrides the custom properties. Do not add a theme switch or pin a theme. `<meta name="color-scheme" content="light dark">` stays in the head.
+- Animations must stop under `prefers-reduced-motion: reduce`.
+- Layouts must work from phone width up, with no horizontal scrolling.
 
 ## Accessibility
 
 - Keep `lang` on `<html>` and a meaningful `<title>`.
 - Use semantic HTML5 elements (`<header>`, `<nav>`, `<main>`, `<footer>`, `<section>`, etc.) and a sensible heading hierarchy.
-- Use ARIA attributes where semantics alone are insufficient, for example `aria-label` on icon-only buttons and links, `aria-expanded`/`aria-controls` on toggles (such as the Bulma navbar burger), and `role` only when no native element fits.
-- Mark decorative Font Awesome icons with `aria-hidden="true"`. Give meaningful icons an accessible name through adjacent text or an `aria-label` on the parent control.
-- Every form control needs an associated `<label>` (or `aria-label`), and images need `alt` text (`alt=""` if decorative).
+- Mark decorative SVGs and illustrations with `aria-hidden="true"`. Give images meaningful `alt` text (`alt=""` if decorative).
+- Keep interactive elements keyboard accessible with a visible focus style.

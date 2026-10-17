@@ -4,22 +4,215 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <title>Shrike</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.4/css/bulma.min.css"
-      integrity="sha512-yh2RE0wZCVZeysGiqTwDTO/dKelCbS9bP2L94UvOFtl/FKXcNAje3Y2oBg/ZMZ3LS1sicYk4dYVGtDex75fvvA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    >
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
-      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    >
+    <meta name="description" content="Shrike finds and covers personal data in images and videos, entirely on your Mac.">
+    <meta name="theme-color" content="#f6f4f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121115" media="(prefers-color-scheme: dark)">
+    <title>Shrike — redact images and videos on your Mac</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b4532a'/%3E%3Crect x='5' y='12' width='22' height='7' rx='1.5' fill='%23111014'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="bar">
+      <div class="wrap">
+        <a class="wordmark" href="#top" aria-label="Shrike, back to top">
+          <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="var(--accent)"/>
+            <rect x="5" y="12" width="22" height="7" rx="1.5" fill="var(--mask)"/>
+          </svg>
+          Shrike
+        </a>
+        <nav aria-label="Page sections">
+          <a href="#support">Support</a>
+          <a href="#privacy">Privacy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="wrap">
+          <p class="eyebrow">For Mac</p>
+          <h1>Share the picture, not the <span class="redact">details</span>.</h1>
+          <p class="lede">
+            Shrike finds personal data in your images and videos and covers it up before you share them.
+            Everything happens on your Mac. Nothing is uploaded, ever.
+          </p>
+
+          <!-- On launch, replace the inner span with Apple's official "Download on the Mac App Store" badge and link it to the app's App Store page. -->
+          <p class="store">
+            <span class="store-soon">Coming soon to the Mac App Store</span>
+          </p>
+
+          <!-- Illustration of a redacted image, not the app's UI: the real app window is shown further down. -->
+          <div class="stage" aria-hidden="true">
+            <div class="card">
+              <h2>Booking confirmed</h2>
+              <p class="meta">Room 204 · 2 nights · 3 guests</p>
+              <dl>
+                <dt>Email</dt>
+                <dd><span class="redact">jane.doe@example.com</span></dd>
+                <dt>Phone</dt>
+                <dd><span class="redact">+31 6 1234 5678</span></dd>
+                <dt>Card</dt>
+                <dd><span class="redact">4111 1111 1111 1111</span></dd>
+                <dt>Born</dt>
+                <dd><span class="redact">12 March 1987</span></dd>
+                <dt>Postcode</dt>
+                <dd><span class="redact">1012 AB</span></dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="finds-title">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="finds-title">It knows what to look for.</h2>
+            <p>Shrike reads the text in every frame and covers anything that matches its rules. Add your own for what only you know is sensitive.</p>
+          </div>
+          <ul class="finds">
+            <li>
+              <h3>Email addresses</h3>
+              <span class="sample redact">jane.doe@example.com</span>
+            </li>
+            <li>
+              <h3>Phone numbers</h3>
+              <span class="sample redact">+31 6 1234 5678</span>
+            </li>
+            <li>
+              <h3>Card numbers</h3>
+              <span class="sample redact">4111 1111 1111 1111</span>
+            </li>
+            <li>
+              <h3>Dates</h3>
+              <span class="sample redact">12 March 1987</span>
+            </li>
+            <li>
+              <h3>Postcodes</h3>
+              <span class="sample redact">1012 AB</span>
+            </li>
+            <li>
+              <h3>Your own keywords and patterns</h3>
+              <span class="sample redact">INV-2026-0417</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="how-title">
+        <div class="wrap how">
+          <div>
+            <div class="section-head">
+              <h2 id="how-title">Open, check, save.</h2>
+              <p>Drop a file on the window, review your rules, and choose <span class="menu">Redact and Save…</span> Shrike writes a redacted copy.</p>
+            </div>
+            <dl class="how-points">
+              <dt>Your own rules</dt>
+              <dd>Add keywords or patterns for names, addresses, or anything else, and switch each one on or off.</dd>
+              <dt>Every frame</dt>
+              <dd>Matching text is covered with an opaque box in every frame of a video, not just the first.</dd>
+              <dt>Text that moves</dt>
+              <dd>Shrike can follow text across frames, so even half-typed or half-hidden text gets covered.</dd>
+            </dl>
+          </div>
+          <figure class="how-shot">
+            <picture>
+              <source srcset="screenshot-dark.webp" media="(prefers-color-scheme: dark)">
+              <img src="screenshot-light.webp" width="853" height="682" loading="lazy" decoding="async" alt="Shrike's window with a video open, showing three custom redaction rules switched on, the text recognition setting, and the option to follow text across frames.">
+            </picture>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="principles-title">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="principles-title">Private by design, not by promise.</h2>
+          </div>
+          <div class="principles">
+            <article class="principle">
+              <svg viewBox="0 0 36 36" aria-hidden="true">
+                <rect x="4" y="7" width="28" height="18" rx="2.5"/>
+                <path d="M13 31h10M18 25v6"/>
+              </svg>
+              <h3>Stays on your Mac</h3>
+              <p>Images and videos are processed on the device. There's no account, no server, no analytics, and no third-party code.</p>
+            </article>
+            <article class="principle">
+              <svg viewBox="0 0 36 36" aria-hidden="true">
+                <rect x="4" y="6" width="28" height="24" rx="2.5"/>
+                <path d="M15 13.5v9l7.5-4.5z"/>
+              </svg>
+              <h3>Images and videos</h3>
+              <p>Open a screenshot, a photo of a document, or a screen recording. Shrike saves a redacted copy and leaves the original untouched.</p>
+            </article>
+            <article class="principle">
+              <svg viewBox="0 0 36 36" aria-hidden="true">
+                <circle cx="13" cy="18" r="6"/>
+                <path d="M19 18h13M27 18v5M31 18v3"/>
+              </svg>
+              <h3>Rules that follow you</h3>
+              <p>Custom rules sync between your devices through iCloud Keychain, end-to-end encrypted. Not even the developer can read them.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="support" aria-labelledby="support-title">
+        <div class="wrap support">
+          <div class="section-head">
+            <h2 id="support-title">Support</h2>
+            <p>Have a question, found a bug, or have an idea? Choose <span class="menu">Help&nbsp;›&nbsp;Contact&nbsp;Support…</span> in Shrike, or write directly.</p>
+          </div>
+          <a class="mail" href="mailto:shrike@eigenein.dev">shrike@eigenein.dev</a>
+        </div>
+      </section>
+
+      <section class="section" id="privacy" aria-labelledby="privacy-title">
+        <div class="wrap policy">
+          <div class="section-head">
+            <h2 id="privacy-title">Privacy Policy</h2>
+            <p>How the Shrike app handles your data.</p>
+            <p class="updated">Last updated 18 October 2026</p>
+          </div>
+
+          <div class="policy-body">
+            <h3>No data collected</h3>
+            <p>
+              Shrike does not collect, store, or share any of your data, and it does not track you.
+              There are no analytics, no advertising, and no third-party code in the app.
+              Every image and video you open is processed entirely on your device and is never uploaded anywhere.
+            </p>
+
+            <h3>Custom rules and iCloud Keychain</h3>
+            <p>
+              If iCloud Keychain is turned on, your custom redaction rules sync between your devices through it.
+              This sync is end-to-end encrypted by Apple, so the developer cannot read your rules.
+            </p>
+
+            <h3>Contacting support</h3>
+            <p>
+              If you email support, the developer receives your email address and whatever you include in your message.
+              They are used only to reply to you.
+            </p>
+
+            <h3>Apple</h3>
+            <p>
+              Apple may share crash reports and usage data with the developer, but only if you have opted in to sharing them in your device's settings.
+              This data is handled under <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.
+            </p>
+
+            <h3>Changes and questions</h3>
+            <p>
+              Any changes to this policy will be published on this page.
+              For questions about privacy, write to <a href="mailto:shrike@eigenein.dev">shrike@eigenein.dev</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
