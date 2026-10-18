@@ -1,6 +1,6 @@
 /* Shrike — eigenein.dev/shrike */
 
-/* The theme-color metas and the favicon in index.html repeat --paper, --accent and --mask: keep them in sync. */
+/* The theme-color metas in index.html repeat --paper: keep them in sync. */
 :root {
   --paper: #f6f4f0;
   --paper-raised: #ffffff;

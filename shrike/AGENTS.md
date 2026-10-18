@@ -14,11 +14,11 @@ The privacy policy covers the Shrike app only, not this website. Keep it in line
 
 ## Before launch
 
-- Replace the favicon (the inline SVG `<link rel="icon">` in the head) and the wordmark icon in the top bar (`.mark`) with the app icon. Both are placeholders for now.
 - Replace the "Coming soon to the Mac App Store" slot (`.store`) with Apple's official "Download on the Mac App Store" badge, unmodified, linking to the app's App Store page.
 
 ## Images
 
+- `icon.svg`, `favicon.ico` (16, 32, and 48 px), and `apple-touch-icon.png` (180 px, square and opaque, since iOS rounds the corners itself) are the app icon, composited from the layers of the Xcode `AppIcon.icon` bundle. `icon.svg` and `favicon.ico` are a small-size version with no shadows or translucency and a slightly larger bird, so they stay crisp as the favicon and the top bar's wordmark (`.mark`). Regenerate all three when the app icon changes.
 - The hero (`.stage`) is an HTML/CSS illustration of a redacted image, not the app's UI. Don't dress it up as an app window.
 - `screenshot-light.webp` and `screenshot-dark.webp` are real captures of the app window in each appearance, and the page picks one through `<picture>` and `prefers-color-scheme`. Take both of the same state at 2× resolution, with the macOS window shadow on a transparent background (⌘⇧4, then Space), and convert them with `cwebp -lossless -z 9 -metadata none`. Retake them when the app's UI changes, and keep the `alt` text and the copy around them in line with what they show.
 
