@@ -10,8 +10,6 @@
   --rule: #e2ded6;
   --mask: #111014;
   --accent: #b4532a;
-  --window: #ffffff;
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 12px 32px -8px rgb(40 20 10 / 0.18), 0 40px 80px -24px rgb(40 20 10 / 0.22);
   --shadow-card: 0 1px 2px rgb(0 0 0 / 0.06), 0 8px 24px -8px rgb(0 0 0 / 0.18);
 
   --font: ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro", "Inter", "Segoe UI", Roboto, sans-serif;
@@ -31,8 +29,6 @@
     --rule: #2a2830;
     --mask: #000000;
     --accent: #e8875c;
-    --window: #1e1d22;
-    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px -8px rgb(0 0 0 / 0.5), 0 40px 80px -24px rgb(0 0 0 / 0.6);
     --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -8px rgb(0 0 0 / 0.5);
   }
 }
@@ -245,17 +241,15 @@ a:hover {
 .stage {
   max-width: 920px;
   margin: clamp(48px, 8vw, 88px) auto 0;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
+  border-radius: 28px;
   text-align: left;
-  outline: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
   display: grid;
   place-items: center;
   padding: clamp(24px, 6vw, 64px);
   background:
     radial-gradient(circle at 20% 10%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 55%),
     radial-gradient(circle at 90% 90%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 50%),
-    color-mix(in srgb, var(--paper) 60%, var(--window));
+    color-mix(in srgb, var(--accent) 5%, var(--paper));
 }
 
 .card {
