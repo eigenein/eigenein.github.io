@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
 <defs>
 <linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#46CFFA"/><stop offset="1" stop-color="#0461F2"/></linearGradient>
-<filter id="s" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.25"/></filter>
 </defs>
 <rect width="1024" height="1024" rx="228" fill="url(#g)"/>
 <g transform="translate(512 512) scale(1.12) translate(-512 -512)"><g><g transform="translate(512 512) scale(0.8007) translate(-687.0 -632.0)">

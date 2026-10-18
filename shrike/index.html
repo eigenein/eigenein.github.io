@@ -8,7 +8,8 @@
     <meta name="theme-color" content="#f6f4f0" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#121115" media="(prefers-color-scheme: dark)">
     <title>Shrike – redact images and videos on your Mac</title>
-    <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+    <!-- favicon.ico also holds 16 and 48 px, but listing them makes Chromium pick it over icon.svg. -->
+    <link rel="icon" href="favicon.ico" sizes="32x32">
     <link rel="icon" href="icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
     <link rel="stylesheet" href="style.css">
@@ -33,7 +34,7 @@
       <section class="hero" id="top">
         <div class="wrap">
           <p class="eyebrow">For Mac</p>
-          <h1>Share the picture, not the <span class="redact">details</span>.</h1>
+          <h1>Share the picture, not the <span class="redact" tabindex="0">details</span>.</h1>
           <p class="lede">
             Shrike finds personal data in your images and videos and covers it up before you share them.
             Everything happens on your Mac. Nothing is uploaded, ever.
@@ -72,7 +73,8 @@
             <h2 id="finds-title">It knows what to look for.</h2>
             <p>Shrike reads the text in every frame and covers anything that matches its rules. Add your own for what only you know is sensitive.</p>
           </div>
-          <ul class="finds">
+          <!-- One tab stop for the whole list: focusing it uncovers every sample. -->
+          <ul class="finds" tabindex="0">
             <li>
               <h3>Email addresses</h3>
               <span class="sample redact">jane.doe@example.com</span>
