@@ -17,6 +17,7 @@
 
   --gutter: clamp(20px, 5vw, 48px);
   --measure: 1120px;
+  --section-space: clamp(56px, 8vw, 96px);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -316,7 +317,7 @@ a:hover {
 /* Sections */
 
 .section {
-  padding: clamp(72px, 11vw, 140px) 0;
+  padding: var(--section-space) 0;
 }
 
 .section + .section {
