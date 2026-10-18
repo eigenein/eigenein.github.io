@@ -6,7 +6,7 @@
   --paper-raised: #ffffff;
   --ink: #16151a;
   --ink-soft: #55525c;
-  --ink-faint: #8b8892;
+  --ink-faint: #6e6b75;
   --rule: #e2ded6;
   --accent: #b4532a;
   --shadow-card: 0 1px 2px rgb(0 0 0 / 0.06), 0 8px 24px -8px rgb(0 0 0 / 0.18);
@@ -26,7 +26,7 @@
     --paper-raised: #1b1a1f;
     --ink: #f1efeb;
     --ink-soft: #b3afb8;
-    --ink-faint: #7d7983;
+    --ink-faint: #8f8b95;
     --rule: #2a2830;
     --accent: #e8875c;
     --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -8px rgb(0 0 0 / 0.5);
@@ -71,8 +71,8 @@ a:hover {
   outline-offset: 3px;
 }
 
-/* Round the ring around inline text only: boxes keep their own corners. */
-a:focus-visible {
+/* Round the ring around inline text, links or not. Zero specificity, so any box with its own corners keeps them. */
+:where(a, [tabindex]):focus-visible {
   border-radius: 4px;
 }
 
@@ -208,83 +208,7 @@ a:focus-visible {
   text-wrap: pretty;
 }
 
-/* Tiles: a grid of cards, each one a single link */
-
-.tiles {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
-  gap: clamp(16px, 3vw, 24px);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.tile {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: clamp(24px, 4vw, 32px);
-  border: 1px solid var(--rule);
-  border-radius: 20px;
-  background: var(--paper-raised);
-  color: var(--ink);
-  text-decoration: none;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-}
-
-.tile:hover {
-  border-color: color-mix(in srgb, var(--accent) 50%, var(--rule));
-  box-shadow: var(--shadow-card);
-  transform: translateY(-2px);
-}
-
-.tile:focus-visible {
-  border-radius: 20px;
-}
-
-.tile-icon {
-  display: grid;
-  place-items: center;
-  width: 56px;
-  height: 56px;
-  margin-bottom: 24px;
-  flex: none;
-  border-radius: 13px;
-}
-
-.tile h3 {
-  margin: 0 0 4px;
-  font: 650 24px/1.2 var(--font);
-  letter-spacing: -0.02em;
-}
-
-.tile .meta {
-  margin: 0 0 14px;
-  color: var(--ink-faint);
-  font-size: 14px;
-}
-
-.tile p {
-  margin: 0;
-  color: var(--ink-soft);
-  text-wrap: pretty;
-}
-
-/* Pushed to the bottom so tiles of different lengths line their calls to action up. */
-.tile .more {
-  margin-top: auto;
-  padding-top: 24px;
-  color: var(--accent);
-  font-weight: 550;
-}
-
-.tile:hover .more {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
-}
-
-/* Footer */
+/* Motion */
 
 @media (prefers-reduced-motion: reduce) {
   html {

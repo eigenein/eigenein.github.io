@@ -17,19 +17,93 @@
         padding-bottom: 0;
       }
 
+      .avatar {
+        border-radius: 50%;
+      }
+
+      /* Tiles: a grid of cards, each one a single link */
+
+      .tiles {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+        gap: clamp(16px, 3vw, 24px);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .tile {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: clamp(24px, 4vw, 32px);
+        border: 1px solid var(--rule);
+        border-radius: 20px;
+        background: var(--paper-raised);
+        color: var(--ink);
+        text-decoration: none;
+        transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      }
+
+      .tile:hover,
+      .tile:focus-visible {
+        border-color: color-mix(in srgb, var(--accent) 50%, var(--rule));
+        box-shadow: var(--shadow-card);
+        transform: translateY(-2px);
+      }
+
+      .tile-icon {
+        display: grid;
+        place-items: center;
+        width: 56px;
+        height: 56px;
+        margin-bottom: 24px;
+        flex: none;
+        border-radius: 13px;
+      }
+
       .tile-icon img {
         width: 100%;
         height: 100%;
-      }
-
-      .avatar {
-        border-radius: 50%;
       }
 
       .tile-icon.fennec {
         background: color-mix(in srgb, var(--accent) 14%, var(--paper));
         font-size: 32px;
         line-height: 1;
+      }
+
+      .tile h3 {
+        margin: 0 0 4px;
+        font: 650 24px/1.2 var(--font);
+        letter-spacing: -0.02em;
+      }
+
+      .tile .meta {
+        margin: 0 0 14px;
+        color: var(--ink-faint);
+        font-size: 14px;
+      }
+
+      .tile p {
+        margin: 0;
+        color: var(--ink-soft);
+        text-wrap: pretty;
+      }
+
+      /* Pushed to the bottom so tiles of different lengths line their calls to action up. */
+      .tile .more {
+        margin-top: auto;
+        padding-top: 24px;
+        color: var(--accent);
+        font-weight: 550;
+      }
+
+      .tile:hover .more,
+      .tile:focus-visible .more {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
       }
     </style>
   </head>
@@ -65,21 +139,21 @@
           </div>
           <ul class="tiles">
             <li>
-              <a class="tile" href="/shrike/">
+              <a class="tile" href="/shrike/" aria-labelledby="shrike-title shrike-more" aria-describedby="shrike-meta shrike-about">
                 <span class="tile-icon"><img src="/shrike/icon.svg" width="56" height="56" alt=""></span>
-                <h3>Shrike</h3>
-                <p class="meta">For Mac</p>
-                <p>Finds personal data in your images and videos and covers it up before you share them. Everything happens on your Mac.</p>
-                <span class="more">Learn more →</span>
+                <h3 id="shrike-title">Shrike</h3>
+                <p class="meta" id="shrike-meta">For Mac</p>
+                <p id="shrike-about">Finds personal data in your images and videos and covers it up before you share them. Everything happens on your Mac.</p>
+                <span class="more" id="shrike-more">Learn more <span aria-hidden="true">→</span></span>
               </a>
             </li>
             <li>
-              <a class="tile" href="https://github.com/eigenein/fennec">
+              <a class="tile" href="https://github.com/eigenein/fennec" aria-labelledby="fennec-title fennec-more" aria-describedby="fennec-meta fennec-about">
                 <span class="tile-icon fennec" aria-hidden="true">🦊</span>
-                <h3>Fennec</h3>
-                <p class="meta">Open source · Rust</p>
-                <p>Plans your home battery for the lowest energy bill. It learns how your home uses and produces energy, and how your battery behaves, then schedules every charge and discharge on Frank Energie's real-time prices.</p>
-                <span class="more">View on GitHub →</span>
+                <h3 id="fennec-title">Fennec</h3>
+                <p class="meta" id="fennec-meta">Open source · Rust</p>
+                <p id="fennec-about">Plans your home battery for the lowest energy bill. It learns how your home uses and produces energy, and how your battery behaves, then schedules every charge and discharge on Frank Energie's real-time prices.</p>
+                <span class="more" id="fennec-more">View on GitHub <span aria-hidden="true">→</span></span>
               </a>
             </li>
           </ul>

@@ -31,10 +31,6 @@
   white-space: nowrap;
 }
 
-.redact:focus-visible {
-  border-radius: 4px;
-}
-
 .redact::after {
   content: "";
   position: absolute;
