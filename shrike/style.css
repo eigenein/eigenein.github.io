@@ -210,7 +210,7 @@ a:hover {
   position: absolute;
   inset: 0.08em -0.12em 0.02em;
   background: var(--ink);
-  border-radius: 0.08em;
+  border-radius: 0.2em;
   transform-origin: left center;
   transition: transform 0.35s cubic-bezier(0.7, 0, 0.2, 1);
 }
